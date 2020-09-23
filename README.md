@@ -27,7 +27,7 @@ This web application consists of:
 
 ## Deployed Link
 
-* [See Live Site](https://leslievill.github.io/Little-Omar-s-Game-/)
+* [See Live Site]()
 
 
 ## Authors
