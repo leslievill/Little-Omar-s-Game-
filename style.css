@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+
+/* nav bar */
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+#nav {
+    display: block;
+    background-color: white;
+    display: inline-block;
+    width: 98vw;
+    border: 5px solid #3ea1f3;
+    border-radius: 5px;
+    margin: 6px;
+}
+
+/* main section */
+
+body {
+    font-family: 'Roboto Slab', arial;
+    background-color: #2166e6;
+}
+
+#quizBody {
+    text-align: center;
+    padding: 12vh;
+}
+
+
+h3 {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+h4 {
+    padding: 10px 8px 10px 8px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+button {
+    border: none;
+    background-color: #3ea1f3;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 16px 10px 16px;
+    font-size: 17px;
+    font-family: 'Balsamiq Sans', cursive;;
+    margin: 4px;
+}
+
+button:hover {
+    transition-duration: 0.2s;
+    background-color: #76b3e6;
+}
+
+#quiz {
+    text-align: center;
+}
