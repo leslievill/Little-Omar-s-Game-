@@ -9,7 +9,7 @@
     float: left;
 }
 
-#nav {
+#container {
     display: block;
     background-color: rgb(238, 237, 182);
     display: inline-block;
@@ -21,7 +21,7 @@
 
 body {
     font-family: 'Roboto Slab', arial;
-    background-color: #75a5ff;
+    background-color: white;
 }
 
 #quizBody {
