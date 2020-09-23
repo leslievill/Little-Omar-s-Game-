@@ -77,7 +77,7 @@ function getScore() {
     <h2>` + localStorage.getItem("highscoreName") + `'s highscore is:</h2>
     <h1>` + localStorage.getItem("highscore") + `</h1><br> 
     
-    <button onclick="clearScore()">Clear score!</button><button onclick="resetGame()">Play Again!</button>
+    <button onclick="clearScore()">Clear score!</button><button onclick="resetQuiz()">Play Again!</button>
     `;
     
     document.getElementById("quizBody").innerHTML = quizContent;
@@ -103,13 +103,15 @@ function resetQuiz() {
     
     var quizContent = `
     <h1>
-        Little Bro's Quiz!
+        Little Bro's Quiz
     </h1>
-    
-    <button onclick="start()">Start Little Bro's Quiz</button>`;
+    <h3>
+        Click to start  
+    </h3>
+    <button onclick="start()">Start!</button>`;
     
     document.getElementById("quizBody").innerHTML = quizContent;
-}
+    }
 //deduct 15secs if answer is wrong 
 function incorrect() {
     timeLeft -= 15; 
@@ -146,4 +148,4 @@ function next() {
     
     
     document.getElementById("quizBody").innerHTML = quizContent;
-}
+    }
