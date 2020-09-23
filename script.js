@@ -44,9 +44,69 @@ timer = setInterval(function() {
     //proceed to end the game function when timer is below 0 at any time
     if (timeLeft <= 0) {
         clearInterval(timer);
-        endGame(); 
+        endQuiz(); 
     }
 }, 1000);
 
-next();
+    next();
 }   
+
+//stop the timer to end the game 
+function endQuiz() {
+    clearInterval(timer);
+    
+    var quizContent = `
+    <h2>Game over!</h2>
+    <h3>You got a ` + score +  ` /100!</h3>
+    <h3>That means you got ` + score / 20 +  ` questions correct!</h3>
+    <input type="text" id="name" placeholder="First name"> 
+    <button onclick="setScore()">Set score!</button>`;
+    
+    document.getElementById("quizBody").innerHTML = quizContent;
+}
+
+//store scores on local storage
+function setScore() {
+    localStorage.setItem("highscore", score);
+    localStorage.setItem("highscoreName",  document.getElementById('name').value);
+    getScore();
+}
+    
+function getScore() {
+    var quizContent = `
+    <h2>` + localStorage.getItem("highscoreName") + `'s highscore is:</h2>
+    <h1>` + localStorage.getItem("highscore") + `</h1><br> 
+    
+    <button onclick="clearScore()">Clear score!</button><button onclick="resetGame()">Play Again!</button>`;
+    
+    document.getElementById("quizBody").innerHTML = quizContent;
+}
+
+//reset quiz
+function resetQuiz() {
+    clearInterval(timer);
+    score = 0;
+    currentQuestion = -1;
+    timeLeft = 0;
+    timer = null;
+    
+    document.getElementById("timeLeft").innerHTML = timeLeft;
+    
+    var quizContent = `
+    <h1>Little Bro's Quiz!</h1>
+    <h3>Click to play!</h3>
+    <button onclick="start()">Start!</button>`;
+    
+    document.getElementById("quizBody").innerHTML = quizContent;
+}
+//deduct 15secs if answer is wrong 
+function incorrect() {
+    timeLeft -= 15; 
+    next();
+}
+    
+//increases score if answers correctly 
+function correct() {
+    score += 20;
+    next();
+}
