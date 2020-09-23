@@ -11,17 +11,17 @@
 
 #nav {
     display: block;
-    background-color: white;
+    background-color: rgb(238, 237, 182);
     display: inline-block;
     width: 98vw;
-    border: 5px solid #3ea1f3;
+    border: 5px solid #fddf5b;
     border-radius: 5px;
     margin: 6px;
 }
 
 body {
     font-family: 'Roboto Slab', arial;
-    background-color: #2166e6;
+    background-color: #75a5ff;
 }
 
 #quizBody {
@@ -42,7 +42,7 @@ a {
 
 button {
     border: none;
-    background-color: #3ea1f3;
+    background-color: #fddf5b;
     color: white;
     border-radius: 5px;
     padding: 10px 16px 10px 16px;

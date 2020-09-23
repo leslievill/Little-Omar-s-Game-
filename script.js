@@ -77,9 +77,18 @@ function getScore() {
     <h2>` + localStorage.getItem("highscoreName") + `'s highscore is:</h2>
     <h1>` + localStorage.getItem("highscore") + `</h1><br> 
     
-    <button onclick="clearScore()">Clear score!</button><button onclick="resetGame()">Play Again!</button>`;
+    <button onclick="clearScore()">Clear score!</button><button onclick="resetGame()">Play Again!</button>
+    `;
     
     document.getElementById("quizBody").innerHTML = quizContent;
+}
+
+//clears the score name and value in the local storage if the user selects 'clear score'
+function clearScore() {
+    localStorage.setItem("highscore", "");
+    localStorage.setItem("highscoreName",  "");
+    
+    resetQuiz();
 }
 
 //reset quiz
@@ -93,9 +102,11 @@ function resetQuiz() {
     document.getElementById("timeLeft").innerHTML = timeLeft;
     
     var quizContent = `
-    <h1>Little Bro's Quiz!</h1>
-    <h3>Click to play!</h3>
-    <button onclick="start()">Start!</button>`;
+    <h1>
+        Little Bro's Quiz!
+    </h1>
+    
+    <button onclick="start()">Start Little Bro's Quiz</button>`;
     
     document.getElementById("quizBody").innerHTML = quizContent;
 }
@@ -109,4 +120,30 @@ function incorrect() {
 function correct() {
     score += 20;
     next();
+}
+
+// for loop for questions 
+function next() {
+    currentQuestion++;
+    
+    if (currentQuestion > questions.length - 1) {
+        endQuiz();
+        return;
+    }
+    
+    var quizContent = "<h2>" + questions[currentQuestion].title + "</h2>"
+    
+    for (var buttonLoop = 0; buttonLoop < questions[currentQuestion].choices.length; buttonLoop++) {
+        var buttonCode = "<button onclick=\"[ANS]\">[CHOICE]</button>"; 
+        buttonCode = buttonCode.replace("[CHOICE]", questions[currentQuestion].choices[buttonLoop]);
+        if (questions[currentQuestion].choices[buttonLoop] == questions[currentQuestion].answer) {
+            buttonCode = buttonCode.replace("[ANS]", "correct()");
+        } else {
+            buttonCode = buttonCode.replace("[ANS]", "incorrect()");
+        }
+        quizContent += buttonCode
+    }
+    
+    
+    document.getElementById("quizBody").innerHTML = quizContent;
 }
